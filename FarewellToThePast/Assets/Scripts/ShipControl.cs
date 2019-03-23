@@ -60,10 +60,10 @@ public class ShipControl : MonoBehaviour
     }
 
     public void UpRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.right * speed);
+        m_transform.Rotate(Vector3.right * -speed);
     }
 
     public void DownRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.right * -speed);
+        m_transform.Rotate(Vector3.right * speed);
     }
 }
