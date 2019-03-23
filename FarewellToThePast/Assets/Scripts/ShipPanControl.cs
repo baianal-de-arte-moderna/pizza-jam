@@ -5,7 +5,9 @@ using UnityEngine;
 public class ShipPanControl : MonoBehaviour
 {
     const float LERP_SPEED = 0.1f;
-    const float ROLL_SPEED = 10f;
+    const float ROLL_SPEED = 0.1f;
+
+    const float MAX_ROLL = 10f;
     Transform mTransform;
     Vector3 targetLocation;
     float verticalMaxPan;
@@ -31,11 +33,11 @@ public class ShipPanControl : MonoBehaviour
     /// </summary>
     void Update()
     {
-        var movementReference = mTransform.localPosition - targetLocation;
-        movementReference *= ROLL_SPEED;
-        mTransform.rotation = Quaternion.Euler(movementReference.y, movementReference.z, movementReference.x);
+        // var movementReference = mTransform.localPosition - targetLocation;
+        // movementReference *= ROLL_SPEED;
+        // mTransform.localRotation = Quaternion.Euler(movementReference.y, movementReference.z, movementReference.x);
 
-        mTransform.localPosition = Vector3.Lerp(mTransform.localPosition, targetLocation, LERP_SPEED);
+        // mTransform.localPosition = Vector3.Lerp(mTransform.localPosition, targetLocation, LERP_SPEED);
     }
     
     // X-Axis functions
@@ -49,12 +51,43 @@ public class ShipPanControl : MonoBehaviour
         targetLocation.x = Mathf.Min(targetLocation.x, horizontalMaxPan);
     }
 
-    public void LeftRoll(float speed) {
-        mTransform.Rotate(Vector3.forward * -speed);
+    public void LeftRoll() {
+        var targetRotation = Quaternion.Euler(
+            mTransform.localRotation.eulerAngles.x,
+            -MAX_ROLL,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
     }
 
-    public void RightRoll(float speed) {
-        mTransform.Rotate(Vector3.forward * speed);
+    public void RightRoll() {
+        var targetRotation = Quaternion.Euler(
+            mTransform.localRotation.eulerAngles.x,
+            MAX_ROLL,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
+    }
+
+    public void FixHorizontalRoll() {
+        var targetRotation = Quaternion.Euler(
+            mTransform.localRotation.eulerAngles.x,
+            0,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
     }
 
     // Y-Axis functions
@@ -68,11 +101,42 @@ public class ShipPanControl : MonoBehaviour
         targetLocation.y = Mathf.Max(targetLocation.y, -verticalMaxPan);
     }
 
-    public void UpRoll(float speed) {
-        mTransform.Rotate(Vector3.right * -speed);
+    public void UpRoll() {
+        var targetRotation = Quaternion.Euler(
+            -MAX_ROLL,
+            mTransform.localRotation.eulerAngles.y,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
     }
 
-    public void DownRoll(float speed) {
-        mTransform.Rotate(Vector3.right * speed);
+    public void DownRoll() {
+        var targetRotation = Quaternion.Euler(
+            MAX_ROLL,
+            mTransform.localRotation.eulerAngles.y,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
+    }
+
+    public void FixVerticalRoll() {
+        var targetRotation = Quaternion.Euler(
+            0,
+            mTransform.localRotation.eulerAngles.y,
+            mTransform.localRotation.eulerAngles.z
+        );
+        mTransform.localRotation = Quaternion.Lerp(
+            mTransform.localRotation,
+            targetRotation,
+            ROLL_SPEED
+        );
     }
 }

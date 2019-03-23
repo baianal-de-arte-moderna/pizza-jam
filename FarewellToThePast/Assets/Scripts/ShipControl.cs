@@ -35,10 +35,16 @@ public class ShipControl : MonoBehaviour
 
     public void LeftRotation(float speed=DEFAULT_MANEUVER_SPEED) {
         ship_main_control.LeftRotation(speed);
+        ship_pan_control.LeftRoll();
     }
 
     public void RightRotation(float speed=DEFAULT_MANEUVER_SPEED) {
         ship_main_control.RightRotation(speed);
+        ship_pan_control.RightRoll();
+    }
+
+    public void NoHorizontalRotation() {
+        ship_pan_control.FixHorizontalRoll();
     }
 
     // Y-Axis functions
@@ -52,9 +58,15 @@ public class ShipControl : MonoBehaviour
 
     public void UpRotation(float speed=DEFAULT_MANEUVER_SPEED) {
         ship_main_control.UpRotation(speed);
+        ship_pan_control.UpRoll();
     }
 
     public void DownRotation(float speed=DEFAULT_MANEUVER_SPEED) {
         ship_main_control.DownRotation(speed);
+        ship_pan_control.DownRoll();
+    }
+
+    public void NoVerticalRotation() {
+        ship_pan_control.FixVerticalRoll();
     }
 }

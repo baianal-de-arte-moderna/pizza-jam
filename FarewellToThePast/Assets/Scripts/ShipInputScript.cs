@@ -30,30 +30,34 @@ public class ShipInputScript : MonoBehaviour
 
         // Vertical PAN
         if (Input.GetKey(KeyCode.W)) {
-            shipControl.UpPan();
+            shipControl.UpRotation();
         } else if (Input.GetKey(KeyCode.S)) {
-            shipControl.DownPan();
+            shipControl.DownRotation();
+        } else {
+            shipControl.NoVerticalRotation();
         }
 
         // Horizontal PAN
         if (Input.GetKey(KeyCode.A)) {
-            shipControl.LeftPan();
-        } else if (Input.GetKey(KeyCode.D)) {
-            shipControl.RightPan();
-        }
-
-        // Vertical Rotation
-        if (Input.GetKey(KeyCode.I)) {
-            shipControl.UpRotation();
-        } else if (Input.GetKey(KeyCode.K)) {
-            shipControl.DownRotation();
-        }
-
-        // Horizontal Rotation
-        if (Input.GetKey(KeyCode.J)) {
             shipControl.LeftRotation();
-        } else if (Input.GetKey(KeyCode.L)) {
+        } else if (Input.GetKey(KeyCode.D)) {
             shipControl.RightRotation();
+        } else {
+            shipControl.NoHorizontalRotation();
         }
+
+        // // Vertical Rotation
+        // if (Input.GetKey(KeyCode.I)) {
+        //     shipControl.UpRotation();
+        // } else if (Input.GetKey(KeyCode.K)) {
+        //     shipControl.DownRotation();
+        // }
+
+        // // Horizontal Rotation
+        // if (Input.GetKey(KeyCode.J)) {
+        //     shipControl.LeftRotation();
+        // } else if (Input.GetKey(KeyCode.L)) {
+        //     shipControl.RightRotation();
+        // }
     }
 }
