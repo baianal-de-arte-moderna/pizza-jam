@@ -31,9 +31,7 @@ public class BulletScript : MonoBehaviour
     }
 
     public void Shot(Vector3 origin, Vector3 destination, float speed=BULLET_SPEED_DEFAULT) {
-        Debug.Log("Shot");
         if (!shooting) {
-            Debug.Log("Shot 2");
             mTransform.position = origin;
             target = destination;
             bulletSpeed = speed;
