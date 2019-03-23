@@ -46,6 +46,11 @@ public class ShipInputScript : MonoBehaviour
             shipControl.NoHorizontalRotation();
         }
 
+        // Shot
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            shipControl.Shot();
+        }
+
         // // Vertical Rotation
         // if (Input.GetKey(KeyCode.I)) {
         //     shipControl.UpRotation();

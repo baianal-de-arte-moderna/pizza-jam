@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipControl : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class ShipControl : MonoBehaviour
     const float DEFAULT_MANEUVER_SPEED = 1f;
     ShipPanControl ship_pan_control;
     ShipMainControl ship_main_control;
+    ShipShotScript ship_shot_control;
+
     // Start is called before the first frame update
     void Start()
     {
         ship_main_control = GetComponent<ShipMainControl>();
         ship_pan_control = GetComponentInChildren<ShipPanControl>();
+        ship_shot_control = GetComponentInChildren<ShipShotScript>();
     }
     
     // Z-Axis functions
@@ -68,5 +72,16 @@ public class ShipControl : MonoBehaviour
 
     public void NoVerticalRotation() {
         ship_pan_control.FixVerticalRoll();
+    }
+
+    // Shot controls
+    public void Shot() {
+        var cam = Camera.main.transform;
+        RaycastHit hit;
+        if (Physics.Raycast(cam.position, cam.forward, out hit, Camera.main.farClipPlane)) {
+            ship_shot_control.Shot(hit.point);
+        } else {
+            ship_shot_control.Shot();
+        }
     }
 }
