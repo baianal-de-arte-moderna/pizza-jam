@@ -1,14 +1,23 @@
-public class Ship {
-    private string name;
+using UnityEngine;
+
+public class Ship : MonoBehaviour
+{
+    [SerializeField]
+    private string shipName;
+    [SerializeField]
     private int shotDamage;
+    [SerializeField]
     private int rateOfFire;
+    [SerializeField]
     private int healthPoints;
+    [SerializeField]
     private int maneuverabilty;
+    [SerializeField]
     private int damage;
 
-    public Ship(string name, int shotDamage, int rateOfFire, int healthPoints, int maneuverabilty)
+    public Ship(string shipName, int shotDamage, int rateOfFire, int healthPoints, int maneuverabilty)
     {
-        this.name = name;
+        this.shipName = shipName;
         this.shotDamage = shotDamage;
         this.rateOfFire = rateOfFire;
         this.healthPoints = healthPoints;
@@ -16,9 +25,9 @@ public class Ship {
         this.damage = 0;
     }
 
-    public string getName()
+    public string getShipName()
     {
-        return this.name;
+        return this.shipName;
     }
 
     public int getShotDamage()
