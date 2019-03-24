@@ -2,44 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputScript : MonoBehaviour
+public abstract class PlayerInputScript : MonoBehaviour
 {
     ShipControl shipControl;
 
-    [SerializeField]
-    private KeyCode yawLeft;
-    [SerializeField]
-    private KeyCode yawRight;
-    [SerializeField]
-    private KeyCode pitchUp;
-    [SerializeField]
-    private KeyCode pitchDown;
-    [SerializeField]
-    private KeyCode throttleUp;
-    [SerializeField]
-    private KeyCode throttleDown;
-    [SerializeField]
-    private KeyCode shot;
-
-    public PlayerInputScript(KeyCode yawLeft, KeyCode yawRight, KeyCode pitchUp, KeyCode pitchDown, KeyCode throttleUp, KeyCode throttleDown, KeyCode shot)
-    {
-        this.yawLeft = yawLeft;
-        this.yawRight = yawLeft;
-        this.pitchUp = pitchUp;
-        this.pitchDown = pitchDown;
-        this.throttleUp = throttleUp;
-        this.throttleDown = throttleDown;
-        this.shot = shot;
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         // TODO: Import ship properties from selected ship
         shipControl = GetComponent<ShipControl>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         readAcceleration();
@@ -50,11 +22,11 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readAcceleration()
     {
-        if (Input.GetKey(throttleUp))
+        if (IsThrottleUpPressed())
         {
             shipControl.Accel();
         }
-        else if (Input.GetKey(throttleDown))
+        else if (IsThrottleDownPressed())
         {
             shipControl.Reverse();
         }
@@ -62,11 +34,11 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readPitch()
     {
-        if (Input.GetKey(pitchUp))
+        if (IsPitchUpPressed())
         {
             shipControl.UpRotation();
         }
-        else if (Input.GetKey(pitchDown))
+        else if (IsPitchDownPressed())
         {
             shipControl.DownRotation();
         }
@@ -78,11 +50,11 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readYaw()
     {
-        if (Input.GetKey(yawLeft))
+        if (IsYawLeftPressed())
         {
             shipControl.LeftRotation();
         }
-        else if (Input.GetKey(yawRight))
+        else if (IsYawRightPressed())
         {
             shipControl.RightRotation();
         }
@@ -94,9 +66,17 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readShot()
     {
-        if (Input.GetKey(shot))
+        if (IsShotPressed())
         {
             shipControl.Shot();
         }
     }
+
+    abstract protected bool IsPitchDownPressed();
+    abstract protected bool IsPitchUpPressed();
+    abstract protected bool IsShotPressed();
+    abstract protected bool IsThrottleUpPressed();
+    abstract protected bool IsThrottleDownPressed();
+    abstract protected bool IsYawLeftPressed();
+    abstract protected bool IsYawRightPressed();
 }
