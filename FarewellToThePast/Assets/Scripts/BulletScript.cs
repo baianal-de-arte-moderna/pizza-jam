@@ -10,25 +10,20 @@ public class BulletScript : MonoBehaviour
     private new Transform transform;
     private new Rigidbody rigidbody;
 
-    private bool shooting;
     private Vector3 target;
     private Ship shooter;
 
     private void Awake() {
         transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
-        shooting = false;
         target = Vector3.zero;
     }
 
     public void Shot(Ship ship, Vector3 origin, Vector3 destination, float speed = BULLET_SPEED_DEFAULT) {
-        if (!shooting) {
-            transform.position = origin;
-            rigidbody.velocity = destination.normalized * speed;
-            shooting = true;
-            shooter = ship;
-            Invoke("EndShot", BULLET_TTL);
-        }
+        transform.position = origin;
+        rigidbody.velocity = destination.normalized * speed;
+        shooter = ship;
+        Invoke("EndShot", BULLET_TTL);
     }
 
     private void OnTriggerEnter(Collider other) {

@@ -94,7 +94,7 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readShot()
     {
-        if (Input.GetKeyDown(shot))
+        if (Input.GetKey(shot))
         {
             shipControl.Shot();
         }
