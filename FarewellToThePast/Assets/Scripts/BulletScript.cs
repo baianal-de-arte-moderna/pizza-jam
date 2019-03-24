@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletScript : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class BulletScript : MonoBehaviour
 
             Ship shot = other.GetComponent<Ship>();
             shot.setDamage(shot.getDamage() + shooter.getShotDamage());
+
+            if (shot.getHealthPoints() <= shot.getDamage()) {
+                Debug.Log($"{shooter.getShipName()} wins!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
 
             EndShot();
         }
