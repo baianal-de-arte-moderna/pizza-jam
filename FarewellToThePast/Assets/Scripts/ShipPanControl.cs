@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipPanControl : MonoBehaviour
 {
+    const float DEFAULT_MOVE_SPEED = 10f;
     const float LERP_SPEED = 0.1f;
     const float ROLL_SPEED = 0.1f;
 
@@ -41,12 +42,12 @@ public class ShipPanControl : MonoBehaviour
     }
     
     // X-Axis functions
-    public void LeftPan(float speed) {
+    public void LeftPan(float speed = DEFAULT_MOVE_SPEED) {
         targetLocation -= Vector3.right * speed;
         targetLocation.x = Mathf.Max(targetLocation.x, -horizontalMaxPan);
     }
 
-    public void RightPan(float speed) {
+    public void RightPan(float speed = DEFAULT_MOVE_SPEED) {
         targetLocation += Vector3.right * speed;
         targetLocation.x = Mathf.Min(targetLocation.x, horizontalMaxPan);
     }
@@ -91,12 +92,12 @@ public class ShipPanControl : MonoBehaviour
     }
 
     // Y-Axis functions
-    public void UpPan(float speed) {
+    public void UpPan(float speed = DEFAULT_MOVE_SPEED) {
         targetLocation += Vector3.up * speed;
         targetLocation.y = Mathf.Min(targetLocation.y, verticalMaxPan);
     }
 
-    public void DownPan(float speed) {
+    public void DownPan(float speed = DEFAULT_MOVE_SPEED) {
         targetLocation -= Vector3.up * speed;
         targetLocation.y = Mathf.Max(targetLocation.y, -verticalMaxPan);
     }

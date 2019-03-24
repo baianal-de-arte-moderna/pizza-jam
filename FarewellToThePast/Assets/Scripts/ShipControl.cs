@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class ShipControl : MonoBehaviour
 {
-    const float DEFAULT_MOVE_SPEED = 10f;
-    const float DEFAULT_MANEUVER_SPEED = 1f;
-
     [SerializeField]
-    GameObject ship;
+    private GameObject ship;
 
     ShipPanControl ship_pan_control;
     ShipMainControl ship_main_control;
@@ -27,32 +24,34 @@ public class ShipControl : MonoBehaviour
         ship_pan_control = GetComponentInChildren<ShipPanControl>();
         ship_shot_control = GetComponentInChildren<ShipShotScript>();
     }
-    
+
     // Z-Axis functions
-    public void Accel(float speed=DEFAULT_MOVE_SPEED) {
-        ship_main_control.Accel(speed);
+    public void Accel()
+    {
+        ship_main_control.Accel();
     }
 
-    public void Reverse(float speed=DEFAULT_MOVE_SPEED) {
-        ship_main_control.Reverse(speed);
+    public void Reverse()
+    {
+        ship_main_control.Reverse();
     }
 
     // X-Axis functions
-    public void LeftPan(float speed=DEFAULT_MOVE_SPEED) {
-        ship_pan_control.LeftPan(speed);
+    public void LeftPan() {
+        ship_pan_control.LeftPan();
     }
 
-    public void RightPan(float speed=DEFAULT_MOVE_SPEED) {
-        ship_pan_control.RightPan(speed);
+    public void RightPan() {
+        ship_pan_control.RightPan();
     }
 
-    public void LeftRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        ship_main_control.LeftRotation(speed);
+    public void LeftRotation() {
+        ship_main_control.LeftRotation();
         ship_pan_control.LeftRoll();
     }
 
-    public void RightRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        ship_main_control.RightRotation(speed);
+    public void RightRotation() {
+        ship_main_control.RightRotation();
         ship_pan_control.RightRoll();
     }
 
@@ -61,21 +60,21 @@ public class ShipControl : MonoBehaviour
     }
 
     // Y-Axis functions
-    public void UpPan(float speed=DEFAULT_MOVE_SPEED) {
-        ship_pan_control.UpPan(speed);
+    public void UpPan() {
+        ship_pan_control.UpPan();
     }
 
-    public void DownPan(float speed=DEFAULT_MOVE_SPEED) {
-        ship_pan_control.DownPan(speed);
+    public void DownPan() {
+        ship_pan_control.DownPan();
     }
 
-    public void UpRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        ship_main_control.UpRotation(speed);
+    public void UpRotation() {
+        ship_main_control.UpRotation();
         ship_pan_control.UpRoll();
     }
 
-    public void DownRotation(float speed=DEFAULT_MANEUVER_SPEED) {
-        ship_main_control.DownRotation(speed);
+    public void DownRotation() {
+        ship_main_control.DownRotation();
         ship_pan_control.DownRoll();
     }
 

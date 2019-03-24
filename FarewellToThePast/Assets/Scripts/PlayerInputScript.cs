@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class PlayerInputScript : MonoBehaviour
 {
-    const float ACCELERATION = 0.01f;
-    const float MAX_ACCELERATION = 0.50f;
-
     ShipControl shipControl;
-    float speed;
+
     [SerializeField]
     private KeyCode yawLeft;
     [SerializeField]
@@ -40,7 +37,6 @@ public class PlayerInputScript : MonoBehaviour
     {
         // TODO: Import ship properties from selected ship
         shipControl = GetComponent<ShipControl>();
-        speed = 0f;
     }
 
     // Update is called once per frame
@@ -54,15 +50,14 @@ public class PlayerInputScript : MonoBehaviour
 
     private void readAcceleration()
     {
-        if (Input.GetKey(throttleUp) && MAX_ACCELERATION > speed)
+        if (Input.GetKey(throttleUp))
         {
-            speed += ACCELERATION;
+            shipControl.Accel();
         }
-        else if (Input.GetKey(throttleDown) && MAX_ACCELERATION > -speed)
+        else if (Input.GetKey(throttleDown))
         {
-            speed -= ACCELERATION;
+            shipControl.Reverse();
         }
-        shipControl.Accel(speed);
     }
 
     private void readPitch()
