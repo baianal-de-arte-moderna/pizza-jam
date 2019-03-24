@@ -7,6 +7,10 @@ public class ShipControl : MonoBehaviour
 {
     const float DEFAULT_MOVE_SPEED = 10f;
     const float DEFAULT_MANEUVER_SPEED = 1f;
+
+    [SerializeField]
+    GameObject ship;
+
     ShipPanControl ship_pan_control;
     ShipMainControl ship_main_control;
     ShipShotScript ship_shot_control;
@@ -14,6 +18,11 @@ public class ShipControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ship)
+        {
+            GameObject shipClone = Instantiate(ship, transform);
+        }
+
         ship_main_control = GetComponent<ShipMainControl>();
         ship_pan_control = GetComponentInChildren<ShipPanControl>();
         ship_shot_control = GetComponentInChildren<ShipShotScript>();
