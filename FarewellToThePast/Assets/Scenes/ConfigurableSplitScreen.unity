@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.024857802, g: 0.03958232, b: 0.038348135, a: 1}
+  m_IndirectSpecularColor: {r: 0.03301912, g: 0.0527177, b: 0.05132033, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -204,13 +204,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0007e2c3adf384646bc6d340989e8733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pitchDown: 115
+  pitchUp: 119
+  shot: 103
+  throttleDown: 121
+  throttleUp: 116
   yawLeft: 97
   yawRight: 100
-  pitchUp: 119
-  pitchDown: 115
-  throttleUp: 116
-  throttleDown: 121
-  shot: 103
+--- !u!114 &207031381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6874492720590109441, guid: b03464f3794a8482982fc03d8f4d60e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 207031378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207031379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2a35785995bb4429d1cb05365e9ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &364169674
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364169676}
   - component: {fileID: 364169675}
+  - component: {fileID: 364169677}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -280,6 +293,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &364169677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364169674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b1bf0afaa65a24483554cd7c198399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ships:
+  - {fileID: 5287874366353829824, guid: 90412c0d093eb10459dac4dbdbfbaf9a, type: 3}
+  - {fileID: 7550700249955598291, guid: bd15faaf8ed909341b8c5bedd9996603, type: 3}
+  - {fileID: 5287874366353829824, guid: 1430d9d47c5124251ac56f632bac5f69, type: 3}
+  playerOneShipControl: {fileID: 207031381}
+  playerTwoShipControl: {fileID: 1912902064}
 --- !u!1 &513703897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6874492720590109440, guid: b03464f3794a8482982fc03d8f4d60e2,
@@ -298,13 +329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0007e2c3adf384646bc6d340989e8733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pitchDown: 274
+  pitchUp: 273
+  shot: 256
+  throttleDown: 258
+  throttleUp: 257
   yawLeft: 276
   yawRight: 275
-  pitchUp: 273
-  pitchDown: 274
-  throttleUp: 257
-  throttleDown: 258
-  shot: 256
 --- !u!1001 &1912902063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,3 +417,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b03464f3794a8482982fc03d8f4d60e2, type: 3}
+--- !u!114 &1912902064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6874492720590109441, guid: b03464f3794a8482982fc03d8f4d60e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912902063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513703897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2a35785995bb4429d1cb05365e9ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

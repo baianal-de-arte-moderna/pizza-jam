@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShipControl : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ship;
+    public GameObject ship;
 
     ShipPanControl ship_pan_control;
     ShipMainControl ship_main_control;
