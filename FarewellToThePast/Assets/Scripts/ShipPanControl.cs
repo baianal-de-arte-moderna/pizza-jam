@@ -13,7 +13,7 @@ public class ShipPanControl : MonoBehaviour
     float verticalMaxPan;
     float horizontalMaxPan;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         mTransform = GetComponent<Transform>();
         targetLocation = mTransform.localPosition;

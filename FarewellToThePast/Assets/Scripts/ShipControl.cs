@@ -16,7 +16,7 @@ public class ShipControl : MonoBehaviour
     ShipShotScript ship_shot_control;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (ship)
         {
@@ -85,6 +85,9 @@ public class ShipControl : MonoBehaviour
 
     // Shot controls
     public void Shot() {
-        ship_shot_control.Shot();
+        if (ship_shot_control != null)
+            ship_shot_control.Shot();
+        else
+            ship_shot_control = GetComponentInChildren<ShipShotScript>();
     }
 }

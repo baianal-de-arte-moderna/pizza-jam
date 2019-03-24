@@ -12,7 +12,7 @@ public class ShipShotScript : MonoBehaviour
     void Start() {}
 
     public void Shot() {
-        Vector3 destination = transform.forward * Camera.main.farClipPlane;
+        Vector3 destination = transform.parent.forward * Camera.main.farClipPlane;
         Shot(destination);
     }
     public void Shot(Vector3 destination) {
