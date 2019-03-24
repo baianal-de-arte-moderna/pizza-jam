@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e6708217ae0f3469da89dbe8f2967a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipName: 'FUR "Stacy" '
+  shipName: 'GTV "Stacy" '
   shotDamage: 5
   rateOfFire: 5
   healthPoints: 10
