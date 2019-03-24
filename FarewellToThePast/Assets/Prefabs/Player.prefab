@@ -23,11 +23,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230751775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.208, z: 1.391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6874492718955158582}
+  m_Father: {fileID: 6874492720590109468}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &490216752
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
     type: 3}
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 1230751776}
 --- !u!114 &404228821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6874492719956218784}
+  - {fileID: 1230751776}
   - {fileID: 6874492718883935435}
   - {fileID: 6874492718955158582}
   m_Father: {fileID: 0}
@@ -284,7 +285,7 @@ PrefabInstance:
     - target: {fileID: 5287874366353829825, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5287874366353829825, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
         type: 3}
@@ -381,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 7550700249955598300, guid: bd15faaf8ed909341b8c5bedd9996603,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7550700249955598300, guid: bd15faaf8ed909341b8c5bedd9996603,
         type: 3}
