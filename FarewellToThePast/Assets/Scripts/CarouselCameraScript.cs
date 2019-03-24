@@ -12,7 +12,8 @@ public class CarouselCameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
+        ChangeShipInformation(SelectedShipInfo);
     }
 
     // Update is called once per frame
@@ -23,10 +24,29 @@ public class CarouselCameraScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) ) {
             carousel.rotateTheCarouselRight();
             var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
-            ShipName.text = SelectedShipInfo.getShipName();
+            ChangeShipInformation(SelectedShipInfo);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ) {
-            carousel.rotateTheCarouselLeft();   
+            carousel.rotateTheCarouselLeft();
+            var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
+            ChangeShipInformation(SelectedShipInfo);
         }
+    }
+
+    void ChangeShipInformation(Ship ship) {
+        ShipName.text = ship.getShipName();   
+        var stats = "";
+        for (var i = 0; i < ship.getShotDamage() / 2; i++)
+            stats += "O" ;
+        stats += '\n';
+        for (var i = 0; i < ship.getRateOfFire() / 2; i++)
+            stats += "O" ;
+        stats += '\n';
+        for (var i = 0; i < ship.getHealthPoints() / 2; i++)
+            stats += "O" ;
+        stats += '\n';
+        for (var i = 0; i < ship.getManeuverability() / 2; i++)
+            stats += "O" ;
+        ShipStats.text = stats;
     }
 }
