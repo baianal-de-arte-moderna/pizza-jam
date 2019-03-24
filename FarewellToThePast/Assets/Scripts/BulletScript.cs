@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    const float BULLET_SPEED_DEFAULT = 50f;
-    const float BULLET_TTL = 5f;
-    bool shooting;
-    Vector3 target;
-    float bulletSpeed;
+    private const float BULLET_SPEED_DEFAULT = 50f;
+    private const float BULLET_TTL = 5f;
 
-    new Rigidbody rigidbody;
+    private new Transform transform;
+    private new Rigidbody rigidbody;
 
-    Transform mTransform;
+    private bool shooting;
+    private Vector3 target;
+    private Ship shooter;
+
     void Awake()
     {
+        transform = GetComponent<Transform>();
+        rigidbody = GetComponent<Rigidbody>();
         shooting = false;
         target = Vector3.zero;
-        mTransform = GetComponent<Transform>();
-        rigidbody = GetComponent<Rigidbody>();
-        bulletSpeed = BULLET_SPEED_DEFAULT;
     }
 
-    public void Shot(Vector3 origin, Vector3 destination, float speed=BULLET_SPEED_DEFAULT) {
+    public void Shot(Vector3 origin, Vector3 destination, float speed = BULLET_SPEED_DEFAULT) {
         if (!shooting) {
-            mTransform.position = origin;
+            transform.position = origin;
             rigidbody.velocity = destination.normalized * speed;
             shooting = true;
             Invoke("EndShot", BULLET_TTL);
