@@ -10,7 +10,6 @@ public class GameStartScript : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> ships;
-
     [SerializeField]
     private ShipControl playerOneShipControl;
     [SerializeField]
@@ -20,17 +19,13 @@ public class GameStartScript : MonoBehaviour
     private GameObject player2Prefab;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
         int player1ShipIndex = StaticGameData.Player1ShipIndex;
         int player2ShipIndex = StaticGameData.Player2ShipIndex;
 
-        var player1 = Instantiate<GameObject>(ships[player1ShipIndex]);
-        var player2 = Instantiate<GameObject>(ships[player2ShipIndex]);
-
-        playerOneShipControl.ship = player1;
-        playerTwoShipControl.ship = player2;
+        playerOneShipControl.ship = ships[player1ShipIndex];
+        playerTwoShipControl.ship = ships[player2ShipIndex];
     }
 
     // Update is called once per frame
