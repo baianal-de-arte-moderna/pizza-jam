@@ -280,6 +280,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &513703897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6874492720590109440, guid: b03464f3794a8482982fc03d8f4d60e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912902063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &513703898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513703897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3875a92c5660d36479000fba405442d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yawLeft: 276
+  yawRight: 275
+  pitchUp: 273
+  pitchDown: 274
+  throttleUp: 257
+  throttleDown: 258
+  shot: 256
 --- !u!1001 &1912902063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,5 +372,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6874492719956218787, guid: b03464f3794a8482982fc03d8f4d60e2,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874492720590109441, guid: b03464f3794a8482982fc03d8f4d60e2,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 7550700249955598291, guid: bd15faaf8ed909341b8c5bedd9996603,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b03464f3794a8482982fc03d8f4d60e2, type: 3}
