@@ -31,6 +31,13 @@ public class CarouselCameraScript : MonoBehaviour
             var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
             ChangeShipInformation(SelectedShipInfo);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return) ) {
+            var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
+            StaticGameData.Player1ShipIndex = carousel.ChosenObject;
+            StaticGameData.Player2ShipIndex = carousel.ChosenObject;
+            SceneManager.LoadScene("ConfigurableSplitScreen");
+        }
     }
 
     void ChangeShipInformation(Ship ship) {
