@@ -84,9 +84,6 @@ public class ShipControl : MonoBehaviour
 
     // Shot controls
     public void Shot() {
-        if (ship_shot_control != null)
-            ship_shot_control.Shot();
-        else
-            ship_shot_control = GetComponentInChildren<ShipShotScript>();
+        ship_shot_control.Shot();
     }
 }
