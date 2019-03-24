@@ -9,11 +9,17 @@ public class CarouselCameraScript : MonoBehaviour
     public CreateCarousel carousel;
     public Text ShipName;
     public Text ShipStats;
+
+    public Text Player1;
+    public Text Player2;
+
+    public bool player1Chose;
     // Start is called before the first frame update
     void Start()
     {
         var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
         ChangeShipInformation(SelectedShipInfo);
+        player1Chose = false;
     }
 
     // Update is called once per frame
@@ -34,9 +40,16 @@ public class CarouselCameraScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return) ) {
             var SelectedShipInfo = carousel.carouselObjects[carousel.ChosenObject].GetComponent<Ship>();
-            StaticGameData.Player1ShipIndex = carousel.ChosenObject;
-            StaticGameData.Player2ShipIndex = carousel.ChosenObject;
-            SceneManager.LoadScene("ConfigurableSplitScreen");
+            if (!player1Chose) {
+                StaticGameData.Player1ShipIndex = carousel.ChosenObject;
+                Player1.color = Color.grey;
+                Player2.color = Color.white;
+                player1Chose = true;
+            } else {
+                StaticGameData.Player2ShipIndex = carousel.ChosenObject;
+                SceneManager.LoadScene("ConfigurableSplitScreen");
+            }
+            
         }
     }
 
