@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class ShipMainControl : MonoBehaviour
 {
+    const float SPEED_LIMIT = 100f;
     const float LERP_SPEED = 0.1f;
-    const float DEFAULT_MOVE_SPEED = 0.2f;
+    const float DEFAULT_MOVE_SPEED = 10f;
     const float DEFAULT_MANEUVER_SPEED = 1f;
     Transform m_transform;
+    new Rigidbody rigidbody;
     public Vector3 target_location;
+
+    float forwardVelocity;
     // Start is called before the first frame update
     void Start()
     {
         m_transform = GetComponent<Transform>();
+        rigidbody = GetComponent<Rigidbody>();
         target_location = m_transform.position;
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        m_transform.position = Vector3.Lerp(m_transform.position, target_location, LERP_SPEED);
+        forwardVelocity = 0f;
     }
     
     // Z-Axis functions
     public void Accel(float speed=DEFAULT_MOVE_SPEED) {
-        target_location += m_transform.forward * speed;
+        forwardVelocity = Mathf.Min(forwardVelocity + speed, SPEED_LIMIT);
+        rigidbody.velocity = transform.forward * forwardVelocity;
     }
 
     public void Reverse(float speed=DEFAULT_MOVE_SPEED) {
-        target_location -= m_transform.forward * speed;
+        forwardVelocity = Mathf.Max(forwardVelocity - speed, SPEED_LIMIT);
+        rigidbody.velocity = transform.forward * forwardVelocity;
     }
 
     // X-Axis functions

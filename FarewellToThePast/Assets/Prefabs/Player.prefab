@@ -30,6 +30,21 @@ Transform:
   m_Father: {fileID: 6874492718955158582}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &490216752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874492718883935434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b075317a7951ea047ae19ef58e40b86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
+    type: 3}
+  Weapon: {fileID: 0}
 --- !u!114 &404228821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,11 +246,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nave do Baiano
       objectReference: {fileID: 0}
-    - target: {fileID: 5287874366353829824, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5287874366353829825, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -291,8 +301,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5287874367008320601, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287874367006027449, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7fa07f01fa9cb2340957a9b950d22ba4, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5287874367001927385, guid: 90412c0d093eb10459dac4dbdbfbaf9a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 90412c0d093eb10459dac4dbdbfbaf9a, type: 3}
+--- !u!1 &6874492718883935434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5287874366353829824, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1586770156250462986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6874492718883935435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5287874366353829825, guid: 90412c0d093eb10459dac4dbdbfbaf9a,
@@ -310,6 +337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nave do Gustavo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550700249955598291, guid: bd15faaf8ed909341b8c5bedd9996603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7550700249955598300, guid: bd15faaf8ed909341b8c5bedd9996603,
         type: 3}

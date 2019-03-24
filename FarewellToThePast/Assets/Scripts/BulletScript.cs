@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    const float BULLET_SPEED_DEFAULT = 1.5f;
+    const float BULLET_SPEED_DEFAULT = 50f;
     const float BULLET_TTL = 5f;
     bool shooting;
     Vector3 target;
     float bulletSpeed;
+
+    new Rigidbody rigidbody;
 
     Transform mTransform;
     void Awake()
@@ -16,29 +18,29 @@ public class BulletScript : MonoBehaviour
         shooting = false;
         target = Vector3.zero;
         mTransform = GetComponent<Transform>();
+        rigidbody = GetComponent<Rigidbody>();
         bulletSpeed = BULLET_SPEED_DEFAULT;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (shooting) {
-            mTransform.position = Vector3.MoveTowards(mTransform.position, target, bulletSpeed);
-            if (Vector3.Distance(mTransform.position, target) < BULLET_SPEED_DEFAULT) {
-                EndShot();
-            }
+    public void Shot(Vector3 origin, Vector3 destination, float speed=BULLET_SPEED_DEFAULT) {
+        if (!shooting) {
+            mTransform.position = origin;
+            rigidbody.velocity = destination.normalized * speed;
+            shooting = true;
+            Invoke("EndShot", BULLET_TTL);
         }
     }
 
-    public void Shot(Vector3 origin, Vector3 destination, float speed=BULLET_SPEED_DEFAULT) {
-        Debug.Log("Shot");
-        if (!shooting) {
-            Debug.Log("Shot 2");
-            mTransform.position = origin;
-            target = destination;
-            bulletSpeed = speed;
-            shooting = true;
-            Invoke("EndShot", BULLET_TTL);
+    /// <summary>
+    /// OnCollisionEnter is called when this collider/rigidbody has begun
+    /// touching another rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionEnter(Collision other)
+    {
+        if (!other.gameObject.CompareTag("Player")) {
+            Debug.Log("Bullet hit");
+            EndShot();
         }
     }
 
