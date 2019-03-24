@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShipControl : MonoBehaviour
 {
-    const float DEFAULT_MOVE_SPEED = 0.2f;
+    const float DEFAULT_MOVE_SPEED = 10f;
     const float DEFAULT_MANEUVER_SPEED = 1f;
     ShipPanControl ship_pan_control;
     ShipMainControl ship_main_control;
@@ -76,12 +76,6 @@ public class ShipControl : MonoBehaviour
 
     // Shot controls
     public void Shot() {
-        var cam = Camera.main.transform;
-        RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, Camera.main.farClipPlane)) {
-            ship_shot_control.Shot(hit.point);
-        } else {
-            ship_shot_control.Shot();
-        }
+        ship_shot_control.Shot();
     }
 }

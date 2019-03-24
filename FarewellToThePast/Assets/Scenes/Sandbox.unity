@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6874492720590109440, guid: f245c53d723488a459176c638c580b88,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6874492720590109468, guid: f245c53d723488a459176c638c580b88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,6 +183,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116526601, guid: f245c53d723488a459176c638c580b88, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 116526601, guid: f245c53d723488a459176c638c580b88, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116526601, guid: f245c53d723488a459176c638c580b88, type: 3}
+      propertyPath: m_Drag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874492719956218784, guid: f245c53d723488a459176c638c580b88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874492718883935434, guid: f245c53d723488a459176c638c580b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874492718955158585, guid: f245c53d723488a459176c638c580b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874492719956218787, guid: f245c53d723488a459176c638c580b88,
+        type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f245c53d723488a459176c638c580b88, type: 3}
@@ -262,7 +299,7 @@ GameObject:
   - component: {fileID: 653664177}
   m_Layer: 0
   m_Name: Planet (5)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,7 +333,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &653664178
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -412,7 +449,7 @@ GameObject:
   - component: {fileID: 887921560}
   m_Layer: 0
   m_Name: Planet (4)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +483,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &887921561
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -520,7 +557,7 @@ GameObject:
   - component: {fileID: 1015984396}
   m_Layer: 0
   m_Name: Planet (11)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +591,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1015984397
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -628,7 +665,7 @@ GameObject:
   - component: {fileID: 1064690626}
   m_Layer: 0
   m_Name: Planet (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,7 +699,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1064690627
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -844,7 +881,7 @@ GameObject:
   - component: {fileID: 1110802737}
   m_Layer: 0
   m_Name: Planet (9)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -878,7 +915,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1110802738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -952,7 +989,7 @@ GameObject:
   - component: {fileID: 1117444986}
   m_Layer: 0
   m_Name: Planet (2)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -986,7 +1023,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1117444987
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1060,7 +1097,7 @@ GameObject:
   - component: {fileID: 1231137771}
   m_Layer: 0
   m_Name: Planet (8)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1094,7 +1131,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1231137772
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1168,7 +1205,7 @@ GameObject:
   - component: {fileID: 1389066312}
   m_Layer: 0
   m_Name: Planet (12)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1202,7 +1239,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1389066313
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1276,7 +1313,7 @@ GameObject:
   - component: {fileID: 1582593603}
   m_Layer: 0
   m_Name: Planet (10)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1310,7 +1347,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1582593604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1384,7 +1421,7 @@ GameObject:
   - component: {fileID: 1591992754}
   m_Layer: 0
   m_Name: Planet (6)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1418,7 +1455,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1591992755
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1561,7 +1598,7 @@ GameObject:
   - component: {fileID: 2130918393}
   m_Layer: 0
   m_Name: Planet (3)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1595,7 +1632,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &2130918394
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1669,7 +1706,7 @@ GameObject:
   - component: {fileID: 2133593402}
   m_Layer: 0
   m_Name: Planet (7)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1703,7 +1740,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &2133593403
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1878,6 +1915,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306523028056514263, guid: da28d1f5b009bd247857c1ec3ccffcfd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da28d1f5b009bd247857c1ec3ccffcfd, type: 3}
