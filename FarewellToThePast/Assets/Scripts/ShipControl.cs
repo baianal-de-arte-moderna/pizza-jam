@@ -13,7 +13,7 @@ public class ShipControl : MonoBehaviour
     ShipShotScript ship_shot_control;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (ship)
         {
