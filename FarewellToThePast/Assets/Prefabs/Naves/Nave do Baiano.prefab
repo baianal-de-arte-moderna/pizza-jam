@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b075317a7951ea047ae19ef58e40b86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
+  bulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
     type: 3}
-  Weapon: {fileID: 3180322896396940811}
+  weapon: {fileID: 3180322896396940811}
 --- !u!136 &6276357515147672831
 CapsuleCollider:
   m_ObjectHideFlags: 0
