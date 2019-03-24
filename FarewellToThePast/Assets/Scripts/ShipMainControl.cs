@@ -13,7 +13,6 @@ public class ShipMainControl : MonoBehaviour
 
     Transform m_transform;
     new Rigidbody rigidbody;
-    public Vector3 target_location;
 
     float forwardVelocity;
     float forwardThrusterSpeed;
@@ -24,12 +23,23 @@ public class ShipMainControl : MonoBehaviour
     {
         m_transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
-        target_location = m_transform.position;
         forwardVelocity = 0f;
         forwardThrusterSpeed = 0f;
         backwardThrusterSpeed = 0f;
     }
-    
+
+    private void Update()
+    {
+        if (Mathf.Approximately(forwardVelocity, 0))
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
     // Z-Axis functions
     public void Accel(float acceleration = DEFAULT_ACCELERATION) {
         forwardThrusterSpeed = Mathf.Min(forwardThrusterSpeed + acceleration, MAX_THRUSTER_SPEED);
