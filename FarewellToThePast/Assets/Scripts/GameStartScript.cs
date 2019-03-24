@@ -8,7 +8,13 @@ public class GameStartScript : MonoBehaviour
     // 1 - fur ship
     // 2 - uzd ship
 
-    private List<GameObject> ships = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> ships;
+
+    [SerializeField]
+    private ShipControl playerOneShipControl;
+    [SerializeField]
+    private ShipControl playerTwoShipControl;
 
     private GameObject player1Prefab;
     private GameObject player2Prefab;
@@ -22,6 +28,9 @@ public class GameStartScript : MonoBehaviour
 
         var player1 = Instantiate<GameObject>(ships[player1ShipIndex]);
         var player2 = Instantiate<GameObject>(ships[player2ShipIndex]);
+
+        playerOneShipControl.ship = player1;
+        playerTwoShipControl.ship = player2;
     }
 
     // Update is called once per frame
