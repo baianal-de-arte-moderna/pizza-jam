@@ -11,7 +11,7 @@ public class ShipMainControl : MonoBehaviour
 
     const float DEFAULT_MANEUVER_SPEED = 1f;
 
-    Transform m_transform;
+    new Transform transform;
     new Rigidbody rigidbody;
 
     float forwardVelocity;
@@ -21,7 +21,7 @@ public class ShipMainControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_transform = GetComponent<Transform>();
+        transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
         forwardVelocity = 0f;
         forwardThrusterSpeed = 0f;
@@ -59,19 +59,19 @@ public class ShipMainControl : MonoBehaviour
 
     // X-Axis functions
     public void LeftRotation(float speed = DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.up * -speed);
+        transform.Rotate(Vector3.up * -speed);
     }
 
     public void RightRotation(float speed = DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.up * speed);
+        transform.Rotate(Vector3.up * speed);
     }
 
     // Y-Axis functions
     public void UpRotation(float speed = DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.right * -speed);
+        transform.Rotate(Vector3.right * -speed);
     }
 
     public void DownRotation(float speed = DEFAULT_MANEUVER_SPEED) {
-        m_transform.Rotate(Vector3.right * speed);
+        transform.Rotate(Vector3.right * speed);
     }
 }
