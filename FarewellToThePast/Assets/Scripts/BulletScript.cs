@@ -14,8 +14,7 @@ public class BulletScript : MonoBehaviour
     private Vector3 target;
     private Ship shooter;
 
-    void Awake()
-    {
+    private void Awake() {
         transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
         shooting = false;

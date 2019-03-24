@@ -11,8 +11,7 @@ public class ShipShotScript : MonoBehaviour
 
     private Ship ship;
 
-    private void Awake()
-    {
+    private void Awake() {
         ship = GetComponent<Ship>();
     }
 
