@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7550700249955598300}
-  - component: {fileID: 7550700249955598301}
   - component: {fileID: 2043566147688549497}
+  - component: {fileID: 7550700249955598301}
+  - component: {fileID: 7827241041704810477}
   - component: {fileID: 447034771650933336}
   m_Layer: 0
   m_Name: Nave do Gustavo
@@ -34,18 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7550700249955598301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550700249955598291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2119364a7938dd44081de01ab0d70d32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2043566147688549497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +53,33 @@ MonoBehaviour:
   healthPoints: 10
   maneuverabilty: 5
   damage: 0
+--- !u!114 &7550700249955598301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550700249955598291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2119364a7938dd44081de01ab0d70d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7827241041704810477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550700249955598291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b075317a7951ea047ae19ef58e40b86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
+    type: 3}
+  Weapon: {fileID: 1997983364331145124}
 --- !u!136 &447034771650933336
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -78,21 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: -0.5}
---- !u!114 &8064786942333377007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550700251050984886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b075317a7951ea047ae19ef58e40b86f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 7496155208048985127, guid: 036f5568b85c51a468e25ba850ceb98c,
-    type: 3}
-  Weapon: {fileID: 1997983364331145124}
 --- !u!1 &9109838195061340437
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,12 +197,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 16d73f3e8ac6aa747badc09a0157c20a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a50906dcbad4c4d94af0c2ee4e37eb, type: 3}
---- !u!1 &7550700251050984886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100010, guid: d8a50906dcbad4c4d94af0c2ee4e37eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7550700251051016988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7550700251051415958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d8a50906dcbad4c4d94af0c2ee4e37eb,
