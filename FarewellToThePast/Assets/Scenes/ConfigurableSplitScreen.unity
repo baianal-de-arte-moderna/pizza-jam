@@ -381,7 +381,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ship
       value: 
-      objectReference: {fileID: 7550700249955598291, guid: bd15faaf8ed909341b8c5bedd9996603,
+      objectReference: {fileID: 5287874366353829824, guid: 1430d9d47c5124251ac56f632bac5f69,
         type: 3}
     m_RemovedComponents:
     - {fileID: 0}
