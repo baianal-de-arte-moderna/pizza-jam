@@ -9,6 +9,13 @@ public class ShipShotScript : MonoBehaviour
     [SerializeField]
     private Transform weapon;
 
+    private Ship ship;
+
+    private void Awake()
+    {
+        ship = GetComponent<Ship>();
+    }
+
     public void Shot() {
         Vector3 destination = transform.parent.forward * Camera.main.farClipPlane;
         Shot(destination);
@@ -16,6 +23,6 @@ public class ShipShotScript : MonoBehaviour
 
     public void Shot(Vector3 destination) {
         var newBullet = Instantiate<GameObject>(bulletPrefab);
-        newBullet.GetComponent<BulletScript>().Shot(weapon.position, destination);
+        newBullet.GetComponent<BulletScript>().Shot(ship, weapon.position, destination);
     }
 }

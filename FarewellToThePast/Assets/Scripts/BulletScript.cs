@@ -22,11 +22,12 @@ public class BulletScript : MonoBehaviour
         target = Vector3.zero;
     }
 
-    public void Shot(Vector3 origin, Vector3 destination, float speed = BULLET_SPEED_DEFAULT) {
+    public void Shot(Ship ship, Vector3 origin, Vector3 destination, float speed = BULLET_SPEED_DEFAULT) {
         if (!shooting) {
             transform.position = origin;
             rigidbody.velocity = destination.normalized * speed;
             shooting = true;
+            shooter = ship;
             Invoke("EndShot", BULLET_TTL);
         }
     }
@@ -34,6 +35,10 @@ public class BulletScript : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
             Debug.Log("Bullet hit");
+
+            Ship shot = other.GetComponent<Ship>();
+            shot.setDamage(shot.getDamage() + shooter.getShotDamage());
+
             EndShot();
         }
     }
