@@ -1,45 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletScript : MonoBehaviour
 {
-    const float BULLET_SPEED_DEFAULT = 50f;
-    const float BULLET_TTL = 5f;
-    bool shooting;
-    Vector3 target;
-    float bulletSpeed;
+    private const float BULLET_SPEED_DEFAULT = 50f;
+    private const float BULLET_TTL = 5f;
 
-    new Rigidbody rigidbody;
+    private new Transform transform;
+    private new Rigidbody rigidbody;
 
-    Transform mTransform;
-    void Awake()
-    {
-        shooting = false;
-        target = Vector3.zero;
-        mTransform = GetComponent<Transform>();
+    private Vector3 target;
+    private Ship shooter;
+
+    private void Awake() {
+        transform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
-        bulletSpeed = BULLET_SPEED_DEFAULT;
+        target = Vector3.zero;
     }
 
-    public void Shot(Vector3 origin, Vector3 destination, float speed=BULLET_SPEED_DEFAULT) {
-        if (!shooting) {
-            mTransform.position = origin;
-            rigidbody.velocity = destination.normalized * speed;
-            shooting = true;
-            Invoke("EndShot", BULLET_TTL);
-        }
+    public void Shot(Ship ship, Vector3 origin, Vector3 destination, float speed = BULLET_SPEED_DEFAULT) {
+        transform.position = origin;
+        rigidbody.velocity = destination.normalized * speed;
+        shooter = ship;
+        Invoke("EndShot", BULLET_TTL);
     }
 
-    /// <summary>
-    /// OnCollisionEnter is called when this collider/rigidbody has begun
-    /// touching another rigidbody/collider.
-    /// </summary>
-    /// <param name="other">The Collision data associated with this collision.</param>
-    void OnCollisionEnter(Collision other)
-    {
-        if (!other.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Player")) {
             Debug.Log("Bullet hit");
+
+            Ship shot = other.GetComponent<Ship>();
+            shot.setDamage(shot.getDamage() + shooter.getShotDamage());
+
+            if (shot.getHealthPoints() <= shot.getDamage()) {
+                Debug.Log($"{shooter.getShipName()} wins!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
             EndShot();
         }
     }
