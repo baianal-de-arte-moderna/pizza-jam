@@ -1,0 +1,6 @@
+p1-Forward=Space
+p1-Brake=LeftControl
+p1-Up=W
+p1-Down=Return
+p1-Left=A
+p1-Right=Return
