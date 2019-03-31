@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using System;
 
 public class ConfigureInputScript : MonoBehaviour
 {
@@ -69,13 +70,23 @@ public class ConfigureInputScript : MonoBehaviour
 
         var joypadConfigurationLines = joypadConfiguration.Split('\n');
         foreach (string line in joypadConfigurationLines) {
-            var joypadConfigurationWords = line.Split('-', '=');
+            var joypadConfigurationWords = line.Split('_', '=');
             if (joypadConfigurationWords.Length != 3 ||
                 joypadConfigurationWords[0] != StaticConstants.PLAYER_LIST[currentPlayer] ||
                 ! inputTexts.ContainsKey(joypadConfigurationWords[1])) {
                     continue;
                 }
-                inputTexts[joypadConfigurationWords[1]].text = StaticConstants.StringToKey(joypadConfigurationWords[2]).ToString();
+                string key = joypadConfigurationWords[2];
+                try {
+                    var keyCode = StaticConstants.StringToKey(key);
+                    if (keyCode == KeyCode.None) {
+                        Debug.Log(key.Substring(0, key.Length - 2));
+                        Input.GetAxis(key.Substring(0, key.Length - 2));
+                    }
+                } catch (ArgumentException) {
+                    key = "None";
+                }
+                inputTexts[joypadConfigurationWords[1]].text = key;
         }
     }
 

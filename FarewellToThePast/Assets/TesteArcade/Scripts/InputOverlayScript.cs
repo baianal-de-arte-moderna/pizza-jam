@@ -10,7 +10,16 @@ public class InputOverlayScript : MonoBehaviour
     public event OverlayCallback overlayCallback;
     string path = "Assets/TesteArcade/Text/JoypadConfiguration.txt";
     string player = "p1";
+    char playerNumber = '1';
     string command = "";
+    string[] axisList = {
+        "LX",
+        "LY",
+        "RX",
+        "RY",
+        "DX",
+        "DY"
+    };
     Dictionary<string, string> commandMap;
 
     /// <summary>
@@ -43,7 +52,20 @@ public class InputOverlayScript : MonoBehaviour
                     working = false;
                     SaveKey(vKey.ToString());
                     SaveFile();
-                    break;
+                    return;
+                }
+            }
+            foreach (string axis in axisList) {
+                if (Input.GetAxis("Joy" + playerNumber + axis) > 0) {
+                    working = false;
+                    SaveKey("Joy" + playerNumber + axis + '+');
+                    SaveFile();
+                    return;
+                } else if (Input.GetAxis("Joy" + playerNumber + axis) < 0) {
+                    working = false;
+                    SaveKey("Joy" + playerNumber + axis + '-');
+                    SaveFile();
+                    return;
                 }
             }
         }
@@ -55,6 +77,7 @@ public class InputOverlayScript : MonoBehaviour
 
     public void SetPlayer(string p) {
         player = p;
+        playerNumber = player[1];
     }
 
     public void SaveKey(string key) {
