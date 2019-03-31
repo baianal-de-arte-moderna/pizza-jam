@@ -14,6 +14,16 @@ public static class StaticConstants
     public static string PLAYER6_ID = "p6";
     public static string PLAYER7_ID = "p7";
     public static string PLAYER8_ID = "p8";
+    public static string[] PLAYER_LIST = {
+        PLAYER1_ID,
+        PLAYER2_ID,
+        PLAYER3_ID,
+        PLAYER4_ID,
+        PLAYER5_ID,
+        PLAYER6_ID,
+        PLAYER7_ID,
+        PLAYER8_ID
+    };
 
     // Command References
     public static string CMD_FORWARD = "Forward";

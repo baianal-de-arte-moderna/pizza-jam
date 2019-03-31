@@ -11,12 +11,18 @@ public class ConfigureInputScript : MonoBehaviour
     EventSystem eventSystem;
     public GameObject overlayPanel;
     Dictionary<string, Text> inputTexts;
+    public Text playerNameText;
     GameObject lastSelectedObject;
+    int currentPlayer;
+    bool changed;
     // Start is called before the first frame update
     void Start()
     {
         eventSystem = EventSystem.current;
+        currentPlayer = 0;
+        changed = false;
         inputTexts = new Dictionary<string, Text>();
+
         foreach (string command in StaticConstants.CMD_LIST) {
             inputTexts[command] = transform.Find(command + " Input").GetComponent<Text>();
         }
@@ -27,7 +33,29 @@ public class ConfigureInputScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!overlayPanel.activeSelf) {
+            var horizontalMove = Input.GetAxis("Horizontal");
+            if (horizontalMove > 0) {
+                ChangePlayer(1);
+            } else if (horizontalMove != 0) {
+                ChangePlayer(-1);
+            } else {
+                changed = false;
+            }
+        }
+    }
+
+    void ChangePlayer(int change) {
+        if (!changed) {
+            changed = true;
+            currentPlayer = (currentPlayer + change) % StaticConstants.PLAYER_LIST.Length;
+            while (currentPlayer < 0) {
+                currentPlayer += StaticConstants.PLAYER_LIST.Length;
+            }
+            ReoloadCommands();
+            overlayPanel.GetComponent<InputOverlayScript>().SetPlayer(StaticConstants.PLAYER_LIST[currentPlayer]);
+            playerNameText.text = "Player " + (currentPlayer + 1);
+        }
     }
 
     void ReoloadCommands() {
@@ -35,11 +63,15 @@ public class ConfigureInputScript : MonoBehaviour
         var joypadConfiguration = reader.ReadToEnd();
         reader.Close();
 
+        foreach (string command in StaticConstants.CMD_LIST) {
+            inputTexts[command].text = "None";
+        }
+
         var joypadConfigurationLines = joypadConfiguration.Split('\n');
         foreach (string line in joypadConfigurationLines) {
             var joypadConfigurationWords = line.Split('-', '=');
             if (joypadConfigurationWords.Length != 3 ||
-                joypadConfigurationWords[0] != StaticConstants.PLAYER1_ID ||
+                joypadConfigurationWords[0] != StaticConstants.PLAYER_LIST[currentPlayer] ||
                 ! inputTexts.ContainsKey(joypadConfigurationWords[1])) {
                     continue;
                 }

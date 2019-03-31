@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.033017583, g: 0.05271987, b: 0.051348902, a: 1}
+  m_IndirectSpecularColor: {r: 0.032930147, g: 0.05253146, b: 0.05127521, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -949,8 +949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c217617cd7d5ce54d89bb734d5a09b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joypadConfiguration: {fileID: 4900000, guid: ca314ee0364c4f845adf18e64e182ebf, type: 3}
   overlayPanel: {fileID: 1110203340}
+  playerNameText: {fileID: 1385344519}
 --- !u!1 &642307490
 GameObject:
   m_ObjectHideFlags: 0
