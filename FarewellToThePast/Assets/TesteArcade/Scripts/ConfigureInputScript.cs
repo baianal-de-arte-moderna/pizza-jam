@@ -76,12 +76,11 @@ public class ConfigureInputScript : MonoBehaviour
                 ! inputTexts.ContainsKey(joypadConfigurationWords[1])) {
                     continue;
                 }
-                string key = joypadConfigurationWords[2];
+                string key = joypadConfigurationWords[2].Trim();
                 try {
                     var keyCode = StaticConstants.StringToKey(key);
                     if (keyCode == KeyCode.None) {
-                        Debug.Log(key.Substring(0, key.Length - 2));
-                        Input.GetAxis(key.Substring(0, key.Length - 2));
+                        Input.GetAxis(key.Substring(0, key.Length - 1));
                     }
                 } catch (ArgumentException) {
                     key = "None";
