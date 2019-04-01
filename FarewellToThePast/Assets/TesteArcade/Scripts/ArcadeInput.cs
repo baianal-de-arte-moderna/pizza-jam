@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ArcadeInput : MonoBehaviour
 {
+    public ArcadeShipControl ship;
     public TextAsset joypadConfiguration;
-    public Dictionary<string, KeyCode> inputCommands;
-    public Dictionary<string, string> inputAxis;
-    public Dictionary<string, char> inputDirections;
+    Dictionary<string, KeyCode> inputCommands;
+    Dictionary<string, string> inputAxis;
+    Dictionary<string, char> inputDirections;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,27 +50,28 @@ public class ArcadeInput : MonoBehaviour
     void FixedUpdate()
     {
         if (ProccessInput(StaticConstants.CMD_FORWARD)) {
-            Debug.Log("Accelerating");
+            //Debug.Log("Accelerating");
+            ship.Accel(10000f);
         }
 
         if (ProccessInput(StaticConstants.CMD_BRAKE)) {
-            Debug.Log("Braking");
+            ship.Brake();
         }
 
         if (ProccessInput(StaticConstants.CMD_LEFT)) {
-            Debug.Log("Left");
+            ship.Left();
         }
 
         if (ProccessInput(StaticConstants.CMD_RIGHT)) {
-            Debug.Log("Right");
+            ship.Right();
         }
 
         if (ProccessInput(StaticConstants.CMD_UP)) {
-            Debug.Log("Up");
+            ship.Up();
         }
 
         if (ProccessInput(StaticConstants.CMD_DOWN)) {
-            Debug.Log("Down");
+            ship.Down();
         }
     }
 
