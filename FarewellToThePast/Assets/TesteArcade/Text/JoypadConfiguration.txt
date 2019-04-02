@@ -1,5 +1,5 @@
-p1_Forward=JoystickButton7
-p1_Brake=JoystickButton6
+p1_Forward=JoystickButton6
+p1_Brake=JoystickButton7
 p1_Up=Joy1LY-
 p1_Down=Joy1LY+
 p1_Left=Joy1LX-
